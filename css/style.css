@@ -1,0 +1,566 @@
+/**
+Domki letniskowe - Władysławowo
+2016 Klaudia Kohnke
+**/
+
+body {
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	overflow-x: hidden;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+h2.galeria {
+	color: #0b4f6c;
+}
+h2.kontakt {
+	color: #f4f4e2;
+}
+p.letni {
+	font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 2em;
+}
+hr.star-light,
+hr.star-primary {
+  padding: 0;
+  border: none;
+  border-top: solid 5px;
+  text-align: center;
+  max-width: 250px;
+  margin: 25px auto 30px;
+}
+hr.star-light:after,
+hr.star-primary:after {
+  content: "\f005";
+  font-family: FontAwesome;
+  display: inline-block;
+  position: relative;
+  top: -0.8em;
+  font-size: 2em;
+  padding: 0 0.25em;
+}
+hr.star-light {
+  border-color: white;
+}
+hr.star-light:after {
+  background-color: #18BC9C;
+  color: white;
+}
+hr.star-primary {
+  border-color: #2C3E50;
+}
+hr.star-primary:after {
+  background-color: white;
+  color: #2C3E50;
+}
+header {
+  text-align: center;
+  background:#000000 url('../images/bg4.jpg') no-repeat; /** .. (2) kropy = odwolanie do glownego katalogu, #000000 najpierw tlo, potem obrazek **/	
+  color: #1078a5;
+}
+header .container {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+/** header img {
+  display: block;
+  margin: 0 auto 20px;
+} **/
+
+header .intro-text .name {
+  display: block;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2em;
+  padding-top: 10px;
+}
+header .intro-text .skills {
+  font-size: 1.25em;
+  font-weight: 300;
+}
+@media (min-width: 768px) {
+  header .container {
+    padding-top: 200px;
+    padding-bottom: 100px;
+  }
+  header .intro-text .name {
+    font-size: 4.75em;
+  }
+  header .intro-text .skills {
+    font-size: 1.75em;
+  }
+}
+.navbar-custom {
+  background: #0b4f6c;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+}
+.navbar-custom .navbar-brand {
+  color: #f4f4e2; //* zmiana nazwy "Domki letniskowe" **/
+}
+
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus,
+.navbar-custom .navbar-brand:active,
+.navbar-custom .navbar-brand.active {
+  color: #f0c808; /** podswietlenie domkow **/
+}
+.navbar-custom .navbar-nav {
+  letter-spacing: 1px;
+}
+.navbar-custom .navbar-nav li a {
+  color: #f4f4e2; /** glowny kolor menu **/
+}
+.navbar-custom .navbar-nav li a:hover {
+  color: #f0c808; /** podswietlenie menu **/
+}
+.navbar-custom .navbar-nav li a:focus,
+.navbar-custom .navbar-nav li a:active {
+  color: #48beff; /** podswietlenie aktualnego wyboru **/
+}
+.navbar-custom .navbar-nav li.active a {
+  color: #1f7a8c;
+  background: #1f7a8c;
+}
+.navbar-custom .navbar-nav li.active a:hover,
+.navbar-custom .navbar-nav li.active a:focus,
+.navbar-custom .navbar-nav li.active a:active {
+  color: #1f7a8c;
+  background: #18BC9C;
+}
+.navbar-custom .navbar-toggle {
+  color: #1f7a8c;
+  text-transform: uppercase;
+  font-size: 10px;
+  border-color: white;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+  background-color: #1f7a8c;
+  color: #ffffff;
+  border-color: #1f7a8c;
+}
+@media (min-width: 768px) {
+  .navbar-custom {
+    padding: 25px 0;
+    -webkit-transition: padding 0.3s;
+    -moz-transition: padding 0.3s;
+    transition: padding 0.3s;
+  }
+  .navbar-custom .navbar-brand {
+    font-size: 2em;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .navbar-custom.affix {
+    padding: 10px 0;
+  }
+  .navbar-custom.affix .navbar-brand {
+    font-size: 1.5em;
+  }
+}
+  
+ #gallery .gallery-item {
+  padding-top: 50px;
+  margin: 0 0 15px;
+  right: 0;
+}
+#gallery .gallery-item .gallery-link {
+  display: block;
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+}
+#gallery .gallery-item .gallery-link .caption {
+  background: rgba(244, 244, 226, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all ease 0.5s;
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+}
+#gallery .gallery-item .gallery-link .caption:hover {
+  opacity: 1;
+}
+#gallery .gallery-item .gallery-link .caption .caption-content {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  font-size: 20px;
+  text-align: center;
+  top: 50%;
+  margin-top: -12px;
+  color: white;
+}
+#gallery .gallery-item .gallery-link .caption .caption-content span {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #0b4f6c;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position:absolute;
+  padding-left:70px;
+  padding-top: 100px;
+}
+#gallery .gallery-item .gallery-link .caption .caption-content i {
+  margin-top: -12px;
+}
+#gallery .gallery-item .gallery-link .caption .caption-content h3,
+#gallery .gallery-item .gallery-link .caption .caption-content h4 {
+  margin: 0;
+}
+#gallery * {
+  z-index: 2;
+}
+@media (min-width: 767px) {
+  #gallery .gallery-item {
+    margin: 0 0 30px;
+  }
+}
+  section {
+  padding: 100px 0;
+}
+section h2 {
+  margin: 0;
+  font-size: 3em;
+}
+section.cennik {
+  background: #0b4f6c;
+  color: white;
+}
+section.location {
+	background: #ffffff;
+	color: #0b4f6c;
+}
+@media (max-width: 767px) {
+  section {
+    padding: 75px 0;
+  }
+  section.first {
+    padding-top: 75px;
+  }
+}
+  /* Buttons */
+
+ #prices {
+	 color: #f4f4e2;
+	 
+ }
+  
+.btn {
+	letter-spacing: 1px;
+	text-decoration: none;
+	background: none;
+    -moz-user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    white-space: nowrap;
+	font-size:14px;
+	line-height:20px;
+	font-weight:700;
+	text-transform:uppercase;
+	border: 3px solid;
+	padding:8px 20px;
+}
+.btn-outlined {
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+       -moz-transition: all 0.3s;
+            transition: all 0.3s;
+}
+.btn-outlined.btn-white {
+    background: none;
+    color: #f4f4e2;
+	border-color: #f4f4e2;
+}
+.btn-outlined.btn-zamknij {
+    background: none;
+    color: #1f7a8c;
+	border-color: #f4f4e2;
+}
+.btn-outlined.btn-zamknij:hover,
+.btn-outlined.btn-zamknij:active {
+    color: #1f7a8c;
+    background: #f4f4e2;
+    border-color: #f4f4e2;
+}
+.btn-outlined.btn-white:hover,
+.btn-outlined.btn-white:active {
+    color: #1f7a8c;
+    background: #f4f4e2;
+    border-color: #f4f4e2;
+}
+.btn-lg{
+	font-size:18px;
+	line-height:22px;
+	border: 4px solid;
+	padding:13px 40px;
+}
+  
+#map {
+    width: 100%; height: 400px; margin-top: 40px; margin-bottom: 40px;
+}
+
+.info-window {
+    font-family: 'Montserrat', sans-serif;
+}
+.info-content {
+    color: #999;
+}
+#opis {
+	font-size:18px;
+}
+#adresik { /**przy lokacji **/
+	font-size:18px;
+	padding-bottom: 10px;
+}
+.floating-label-form-group {
+  position: relative;
+  margin-bottom: 0;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #eeeeee;
+}
+#contact{ 
+background: #0b4f6c;
+}
+
+#text-muted {
+	color: #f4f4e2;
+}
+label {
+	color: #f4f4e2;
+}
+footer {
+  color: #1f7a8c;
+}
+footer h3 {
+  margin-bottom: 30px;
+}
+footer .footer-above {
+  padding-top: 50px;
+  background-color: #f4f4e2;
+  color: #0b4f6c;
+}
+footer .footer-col {
+  margin-bottom: 50px;
+}
+footer .footer-below {
+  padding: 25px 0;
+  background-color: #f4f4e2;
+  color: #1f7a8c;
+}
+.btn-outline {
+  color: #0b4f6c;
+  font-size: 20px;
+  border: solid 2px white;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  margin-top: 15px;
+}
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active,
+.btn-outline.active {
+  color: #18BC9C;
+  background: white;
+  border: solid 2px white;
+}
+.btn-primary {
+  color: white;
+  background-color: #2C3E50;
+  border-color: #2C3E50;
+  font-weight: 700;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: white;
+  background-color: #1a242f;
+  border-color: #161f29;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  background-color: #2C3E50;
+  border-color: #2C3E50;
+}
+.btn-primary .badge {
+  color: #2C3E50;
+  background-color: white;
+}
+.btn-success {
+  color: white;
+  background-color: #18BC9C;
+  border-color: #18BC9C;
+  font-weight: 700;
+}
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active,
+.open .dropdown-toggle.btn-success {
+  color: white;
+  background-color: #128f76;
+  border-color: #11866f;
+}
+.btn-success:active,
+.btn-success.active,
+.open .dropdown-toggle.btn-success {
+  background-image: none;
+}
+.btn-success.disabled,
+.btn-success[disabled],
+fieldset[disabled] .btn-success,
+.btn-success.disabled:hover,
+.btn-success[disabled]:hover,
+fieldset[disabled] .btn-success:hover,
+.btn-success.disabled:focus,
+.btn-success[disabled]:focus,
+fieldset[disabled] .btn-success:focus,
+.btn-success.disabled:active,
+.btn-success[disabled]:active,
+fieldset[disabled] .btn-success:active,
+.btn-success.disabled.active,
+.btn-success[disabled].active,
+fieldset[disabled] .btn-success.active {
+  background-color: #18BC9C;
+  border-color: #18BC9C;
+}
+.btn-success .badge {
+  color: #18BC9C;
+  background-color: white;
+}
+.btn-social {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border: 2px solid white;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 45px;
+}
+.scroll-top {
+  position: fixed;
+  right: 2%;
+  bottom: 2%;
+  width: 50px;
+  height: 50px;
+  z-index: 1049;
+}
+.scroll-top .btn {
+  font-size: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  line-height: 28px;
+}
+#stopka_adres{
+	font-size: 20px;
+	color: #0b4f6c;
+}
+.gallery-modal .modal-content {
+  border-radius: 0;
+  background-clip: border-box;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  min-height: 100%;
+  padding: 100px 0;
+  text-align: center;
+}
+.gallery-modal .modal-content h2 {
+  margin: 0;
+  font-size: 3em;
+}
+.gallery-modal .modal-content img {
+  margin-bottom: 0px;
+}
+.gallery-modal .modal-content .item-details {
+  margin: 30px 0;
+}
+.gallery-modal .close-modal {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  background-color: transparent;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+}
+.gallery-modal .close-modal:hover {
+  opacity: 0.3;
+}
+.gallery-modal .close-modal .lr {
+  height: 75px;
+  width: 1px;
+  margin-left: 35px;
+  background-color: #2C3E50;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  /* Safari and Chrome */
+  z-index: 1051;
+}
+.gallery-modal .close-modal .lr .rl {
+  height: 75px;
+  width: 1px;
+  background-color: #2C3E50;
+  transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  /* Safari and Chrome */
+  z-index: 1052;
+}
+.gallery-modal .modal-backdrop {
+  opacity: 0;
+  display: none;
+}
+#opis_domku{
+	font-size:18px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.thumb{
+padding-bottom: 0px;
+margin-bottom: 0px;	
+}
